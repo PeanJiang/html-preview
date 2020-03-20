@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script type="text/javascript">
+        // 配置
+        // 图片高度
+        var img_height = 5630;
+        // 客户名称
+        var title = "成都世代制木家具有限公司";
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .la-pacman,
+        .la-pacman>div {
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .la-pacman {
+            display: block;
+            font-size: 0;
+            color: #fff;
+        }
+
+        .la-pacman.la-dark {
+            color: #333;
+        }
+
+        .la-pacman>div {
+            display: inline-block;
+            float: none;
+            background-color: currentColor;
+            border: 0 solid currentColor;
+        }
+
+        .la-pacman {
+            width: 32px;
+            height: 32px;
+        }
+
+        .la-pacman>div:nth-child(1),
+        .la-pacman>div:nth-child(2) {
+            width: 0;
+            height: 0;
+            background: transparent;
+            border-style: solid;
+            border-width: 16px;
+            border-right-color: transparent;
+            border-radius: 100%;
+            animation: pacman-rotate-half-up .5s 0s infinite;
+        }
+
+        .la-pacman>div:nth-child(2) {
+            margin-top: -32px;
+            animation-name: pacman-rotate-half-down;
+        }
+
+        .la-pacman>div:nth-child(3),
+        .la-pacman>div:nth-child(4),
+        .la-pacman>div:nth-child(5),
+        .la-pacman>div:nth-child(6) {
+            position: absolute;
+            top: 50%;
+            left: 200%;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            opacity: 0;
+            animation: pacman-balls 2s 0s infinite linear;
+        }
+
+        .la-pacman>div:nth-child(3) {
+            animation-delay: -1.44s;
+        }
+
+        .la-pacman>div:nth-child(4) {
+            animation-delay: -1.94s;
+        }
+
+        .la-pacman>div:nth-child(5) {
+            animation-delay: -2.44s;
+        }
+
+        .la-pacman>div:nth-child(6) {
+            animation-delay: -2.94s;
+        }
+
+        .la-pacman.la-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .la-pacman.la-sm>div:nth-child(1),
+        .la-pacman.la-sm>div:nth-child(2) {
+            border-width: 8px;
+        }
+
+        .la-pacman.la-sm>div:nth-child(2) {
+            margin-top: -16px;
+        }
+
+        .la-pacman.la-sm>div:nth-child(3),
+        .la-pacman.la-sm>div:nth-child(4),
+        .la-pacman.la-sm>div:nth-child(5),
+        .la-pacman.la-sm>div:nth-child(6) {
+            width: 4px;
+            height: 4px;
+        }
+
+        .la-pacman.la-2x {
+            width: 64px;
+            height: 64px;
+        }
+
+        .la-pacman.la-2x>div:nth-child(1),
+        .la-pacman.la-2x>div:nth-child(2) {
+            border-width: 32px;
+        }
+
+        .la-pacman.la-2x>div:nth-child(2) {
+            margin-top: -64px;
+        }
+
+        .la-pacman.la-2x>div:nth-child(3),
+        .la-pacman.la-2x>div:nth-child(4),
+        .la-pacman.la-2x>div:nth-child(5),
+        .la-pacman.la-2x>div:nth-child(6) {
+            width: 16px;
+            height: 16px;
+        }
+
+        .la-pacman.la-3x {
+            width: 96px;
+            height: 96px;
+        }
+
+        .la-pacman.la-3x>div:nth-child(1),
+        .la-pacman.la-3x>div:nth-child(2) {
+            border-width: 48px;
+        }
+
+        .la-pacman.la-3x>div:nth-child(2) {
+            margin-top: -96px;
+        }
+
+        .la-pacman.la-3x>div:nth-child(3),
+        .la-pacman.la-3x>div:nth-child(4),
+        .la-pacman.la-3x>div:nth-child(5),
+        .la-pacman.la-3x>div:nth-child(6) {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes pacman-rotate-half-up {
+            0%,
+            100% {
+                transform: rotate(270deg);
+            }
+            50% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pacman-rotate-half-down {
+            0%,
+            100% {
+                transform: rotate(90deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes pacman-balls {
+            0% {
+                left: 200%;
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+            5% {
+                opacity: .5;
+            }
+            66% {
+                opacity: 1;
+            }
+            67% {
+                opacity: 0;
+            }
+            100% {
+                left: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        .load {
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 999;
+        }
+
+        .load .center {
+            position: absolute;
+            width: 220px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loaded .load {
+            transition: 1s;
+            top: -100vh;
+        }
+
+        .w {
+            overflow: hidden;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .w img {
+            display: none;
+        }
+
+        .w .bg {
+            position: relative;
+            width: 100vw;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-image: url(index.jpg);
+            opacity: 0;
+            margin-top: 300px;
+        }
+
+        .loaded .w .bg {
+            opacity: 1;
+            margin-top: 0px;
+            transition: 1s;
+        }
+
+        #wrapper {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        #scroller {
+            transition: 1s !important;
+            user-select: none;
+            transform: translateZ(0);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="load">
+        <div class="center">
+            <div style="color: #333" class="la-pacman la-3x">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="w">
+        <img src="index.jpg" />
+        <div id="wrapper">
+            <div id="scroller">
+                <div class="bg"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript">
+        document.title = title;
+        setTimeout(function () {
+            document.querySelector(".w .bg").style.height = img_height + "px";
+            document.body.classList.add("loaded");
+            new IScroll('#wrapper', {
+                mouseWheel: true,
+                scrollbars: true,
+                disableMouse: true,
+                disablePointer: true,
+                mouseWheelSpeed: 53,
+                keyBindings: {
+                    pageUp: 33,
+                    pageDown: 34,
+                    end: 35,
+                    home: 36,
+                    left: 37,
+                    up: 38,
+                    right: 39,
+                    down: 40
+                }
+            });
+        }, 3000 + Math.random() * 1000);
+    </script>
+</body>
+
+</html>
